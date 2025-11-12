@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>N&N Wedding Invite - Part 2</title>
+</head>
+<body style="margin:0; padding:0; background:#fff; display:flex; justify-content:center; align-items:center; min-height:100vh;">
+
+  <!-- Background Music -->
+  <audio id="bg-music" autoplay loop>
+    <source src="music/music.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Canva Embed -->
+  <div style="position: relative; width: 100%; height: 0; padding-top: 446.1933%;
+    padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16);
+    margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+    border-radius: 8px; will-change: transform;">
+    <iframe
+      loading="lazy"
+      style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;
+      border: none; padding: 0; margin: 0;"
+      src="https://www.canva.com/design/DAG4bjxWi28/6afYP4EXZ-UNL8-FB4kKzg/view?embed"
+      allowfullscreen="allowfullscreen"
+      allow="fullscreen">
+    </iframe>
+  </div>
+
+  <script>
+    // Try to play automatically (some browsers require interaction)
+    document.addEventListener('DOMContentLoaded', () => {
+      const audio = document.getElementById('bg-music');
+      const playPromise = audio.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // If autoplay is blocked, show a small play button
+          const btn = document.createElement('button');
+          btn.textContent = 'Play Music 🎵';
+          btn.style.position = 'fixed';
+          btn.style.bottom = '20px';
+          btn.style.left = '50%';
+          btn.style.transform = 'translateX(-50%)';
+          btn.style.padding = '10px 20px';
+          btn.style.fontSize = '16px';
+          btn.style.border = 'none';
+          btn.style.borderRadius = '8px';
+          btn.style.background = '#222';
+          btn.style.color = '#fff';
+          btn.style.cursor = 'pointer';
+          btn.onclick = () => {
+            audio.play();
+            btn.remove();
+          };
+          document.body.appendChild(btn);
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
